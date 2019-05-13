@@ -21,11 +21,11 @@ router.post(
   ], 
   async (req, res) => {
     const errors = validationResult(req);
-    if(!errors.isEmpty()) { // if there are errors, do this:
+    if(!errors.isEmpty()) { 
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body; // destructured from request object
+    const { name, email, password } = req.body;
     
     try {
       // See if user exists
@@ -35,9 +35,9 @@ router.post(
       }
 
       user = new User({
-        name, // destructured from req.body above
+        name, 
         email,
-        password // hashed below
+        password 
       })
 
       // Encrypt password

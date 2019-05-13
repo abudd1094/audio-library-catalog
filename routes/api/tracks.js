@@ -14,7 +14,6 @@ const User = require('../../models/User');
 router.get('/:user_id', auth, async (req, res) => {
   try {
     const tracks = await Track.find({ user: req.user.id })
-
     res.json(tracks);
 
   } catch (err) {
