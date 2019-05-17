@@ -12,7 +12,7 @@ const Login = ({ login, isAuthenticated }) => {
   
   const { email, password } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value }) // will set specific field in state copying all the rest of the pre-existing formData , allows us to type in 
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value }) // will set specific field in state copying all the rest of the pre-existing formData; allows us to type 
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">Sign In</h1>
-      <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
+      <p className="lead"><i className="fas fa-user"></i>Sign Into Your Account</p>
       <form className="form" onSubmit={e=> onSubmit(e)}>
         <div className="form-group">
           <input 

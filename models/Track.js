@@ -15,6 +15,10 @@ const TrackSchema = new Schema({
     type: String,
     required: true
   },
+  artist: {
+    type: String,
+    required: true
+  },
   album: {
     type: String
   },
@@ -27,9 +31,8 @@ const TrackSchema = new Schema({
   genre: {
     type: String
   },
-  date: {
-    type: Date,
-    default: Date.now
+  bpm: {
+    type: Number
   }
 });
 

@@ -11,7 +11,7 @@ const User = require('../../models/User');
 // @route   GET api/tracks/mylibrary
 // @desc    Get all tracks in a user's library
 // @access  Private
-router.get('/:user_id', auth, async (req, res) => {
+router.get('/mylibrary', auth, async (req, res) => {
   try {
     const tracks = await Track.find({ user: req.user.id })
     res.json(tracks);
@@ -38,7 +38,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const user = await User.findById(req.user.id).select('-password') 
+    // const user = await User.findById(req.user.id).select('-password') 
     const { title, artist, album, year, label, genre } = req.body; 
 
     try {
@@ -55,7 +55,8 @@ router.post(
         album,
         year,
         label,
-        genre
+        genre,
+        bpm
       })
 
       await track.save()
