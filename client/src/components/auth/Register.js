@@ -74,7 +74,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
             onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" value="Register" />
+        <input type="submit" className="btn-basic" value="Register" />
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>

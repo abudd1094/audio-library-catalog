@@ -1,3 +1,52 @@
+/* Global Settings & Tools */
+body {
+  margin: 0 10%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.btn-basic {
+  background-color: rgb(158, 158, 158);
+
+}
+
+input {
+  margin: 3px;
+  border: solid 1px grey;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* Flexbox */
+.flexcontainer {
+  display: flex;
+}
+
+.flex-horiz {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-vert {
+
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* Nav Bar */
+.nav-item {
+  display: inline;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
 /* Mobile */
 @media (max-width: 400px) {
   
