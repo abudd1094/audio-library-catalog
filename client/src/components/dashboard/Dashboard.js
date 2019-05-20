@@ -1,6 +1,7 @@
 import React from 'react';
+// import { Redirect } from 'react-router-dom';
 
-const Dashboard = () => {
+const Dashboard = ({ isAuthenticated }) => {
   return (
     <div>
       Dashboard
@@ -8,4 +9,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+export default Dashboard; 

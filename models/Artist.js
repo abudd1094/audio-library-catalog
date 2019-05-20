@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ArtistSchema = new Schema({
-  user: {
+  user_id: {
     type: Schema.Types.ObjectId,
-    ref: 'users', 
+    ref: 'users'
   },
-  name: {
+  artistName: {
     type: String,
     required: true
   }

@@ -3,11 +3,15 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const AlbumSchema = new Schema({
-  user: {
+  user_id: {
     type: Schema.Types.ObjectId,
-    ref: 'users', 
+    ref: 'users'
   },
-  name: {
+  artist_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'artists'
+  },
+  albumName: {
     type: String,
     required: true
   },

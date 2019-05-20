@@ -6,6 +6,8 @@ const { check, validationResult } = require('express-validator/check');
 
 // Load Models
 const Track = require('../../models/Track');
+const Artist = require('../../models/Artist');
+const Album = require('../../models/Album');
 const User = require('../../models/User');
 
 // @route   GET api/tracks/mylibrary
@@ -30,7 +32,6 @@ router.post(
   auth, 
   [
     check('title', 'Please include a title').exists(),
-    check('artist', 'Please include an artist').exists()
   ], 
   async (req, res) => {
     const errors = validationResult(req);
@@ -39,23 +40,59 @@ router.post(
     }
 
     // const user = await User.findById(req.user.id).select('-password') 
-    const { title, artist, album, year, label, genre } = req.body; 
+    const { title, artist, album, bpm } = req.body; 
 
     try {
       // See if track already exists
-      let track = await Track.findOne({ title, artist });
+      let track = await Track.findOne({ title });
       if(track) {
         return res.status(400).json({ errors: [{ msg: 'Track already exists' }] });
       }
 
+      // See if artist already exists
+      let existingArtist = await Artist.findOne({ artistName: artist })
+      let artist_id
+
+      if(existingArtist) {
+        artist_id = existingArtist.id
+        console.log('artist exists')
+      } else {
+        newArtist = new Artist({
+          user_id: req.user.id,
+          artistName: artist
+        })
+
+        await newArtist.save()
+
+        artist_id = newArtist.id
+        console.log('created new artist')
+      }
+
+      // See if album already exists
+      let existingAlbum = await Album.findOne({ albumName: album, artist_id })
+      let album_id
+
+      if(existingAlbum) {
+        album_id = existingAlbum.id
+        console.log('album exists')
+      } else {
+        newAlbum = new Album({
+          user_id: req.user.id,
+          artist_id,
+          albumName: album
+        })
+
+        await newAlbum.save()
+
+        album_id = newAlbum.id
+        console.log('created new album')
+      }
+
       track = new Track({
-        user: req.user.id,
+        user_id: req.user.id,
         title,
-        artist,
-        album,
-        year,
-        label,
-        genre,
+        artist_id,
+        album_id,
         bpm
       })
 

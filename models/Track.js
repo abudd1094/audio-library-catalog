@@ -3,33 +3,21 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const TrackSchema = new Schema({
-  user: {
+  user_id: {
     type: Schema.Types.ObjectId,
-    ref: 'users', 
+    ref: 'users' 
+  },
+  artist_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'artists'
+  },
+  album_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'albums'
   },
   title: {
     type: String,
     required: true
-  },
-  artist: {
-    type: String,
-    required: true
-  },
-  artist: {
-    type: String,
-    required: true
-  },
-  album: {
-    type: String
-  },
-  year: {
-    type: String
-  },
-  label: {
-    type: String
-  },
-  genre: {
-    type: String
   },
   bpm: {
     type: Number
