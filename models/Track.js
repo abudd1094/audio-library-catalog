@@ -19,6 +19,9 @@ const TrackSchema = new Schema({
     type: String,
     required: true
   },
+  year: {
+    type: Number
+  },
   bpm: {
     type: Number
   }
