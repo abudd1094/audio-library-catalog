@@ -32,6 +32,7 @@ router.post(
   auth, 
   [
     check('title', 'Please include a title').exists(),
+    check('artist', 'Please include an artist').exists()
   ], 
   async (req, res) => {
     const errors = validationResult(req);
@@ -40,18 +41,18 @@ router.post(
     }
 
     // const user = await User.findById(req.user.id).select('-password') 
-    const { title, artist, album, bpm } = req.body; 
+    const { title, artist, album, year, bpm } = req.body; 
 
     try {
-      // See if track already exists
+      // See if track title exists under specified artist catalog
+      let existingArtist = await Artist.findOne({ artistName: artist })
       let track = await Track.findOne({ title });
-      if(track) {
+
+      let artist_id
+
+      if(track && existingArtist) {
         return res.status(400).json({ errors: [{ msg: 'Track already exists' }] });
       }
-
-      // See if artist already exists
-      let existingArtist = await Artist.findOne({ artistName: artist })
-      let artist_id
 
       if(existingArtist) {
         artist_id = existingArtist.id
@@ -93,6 +94,7 @@ router.post(
         title,
         artist_id,
         album_id,
+        year,
         bpm
       })
 
@@ -152,5 +154,22 @@ router.delete('/:id', auth, async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+
+// @route   PUT api/tracks/:id
+// @desc    Edit a track
+// @access  Private
+// router.put('/:id', auth, async (req, res) => {
+//     const { title, artist, album, year, bpm } = req.body;    
+  
+
+//     } catch(err) {
+//       console.error(err.message)
+//       if(err.kind === 'ObjectId') {
+//         return res.status(404).json({ msg: 'Track not found' })
+//       }
+//       res.status(500).send('Server Error')
+//     }
+//   }
+// )
 
 module.exports = router;
