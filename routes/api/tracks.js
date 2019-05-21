@@ -11,7 +11,7 @@ const Album = require('../../models/Album');
 const User = require('../../models/User');
 
 // @route   GET api/tracks/mylibrary
-// @desc    Get all tracks in a user's library
+// @desc    Get all tracks in a user's libraries
 // @access  Private
 router.get('/mylibrary', auth, async (req, res) => {
   try {
@@ -106,5 +106,51 @@ router.post(
     };
   }
 )
+
+// @route   GET api/tracks/:id
+// @desc    Get a track by ID
+// @access  Private
+router.get('/:id', auth, async (req, res) => {
+    try {
+      const track = await Track.findById(req.params.id)
+
+      if(!track) {
+        return res.status(404).json({ msg: 'Track not found' })
+      }
+  
+      res.json(track)
+    } catch(err) {
+      console.error(err.message)
+      if(err.kind === 'ObjectId') {
+        return res.status(404).json({ msg: 'Track not found' })
+      }
+      res.status(500).send('Server Error')
+    }
+  }
+)
+
+// @route   DELETE api/tracks/:id
+// @desc    Delete a track
+// @access  Private
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const track = await Track.findById(req.params.id)
+
+    // Check if track exists
+    if(!track) {
+      return res.status(404).json({ msg: 'Track not found' })
+    }
+
+    await track.remove();
+
+    res.json({ msg: 'Track removed' })
+  } catch(err) {
+    console.error(err.message)
+    if(err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Track not found' })
+    }
+    res.status(500).send('Server Error')
+  }
+})
 
 module.exports = router;
