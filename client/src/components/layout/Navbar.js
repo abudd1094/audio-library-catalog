@@ -39,7 +39,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
   
   return (
-    <nav className="flexcontainer flex-horiz">
+    <nav 
+      style={{ 
+        width:'100%', 
+        backgroundColor:'grey' 
+      }} 
+      className="flexcontainer flex-horiz">
       { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>) } 
     </nav>
   )
