@@ -25,7 +25,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul className="flexcontainer flex-horiz" style={{width: "100%"}}>
+    <ul className="flexcontainer flex-horiz" style={{width: "100%", padding: "none"}}>
       <li className="nav-item">
         <Link to="/" className="nav-link">ALC</Link>
       </li>
