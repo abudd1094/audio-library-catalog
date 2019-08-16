@@ -33,12 +33,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
   }
 
   return (
-    <Fragment>
-      <h1>Sign Up</h1>
-      <p>Create Your Account</p>
+    <div className="auth-form">
+      <h4 className="auth-form__header">Sign Up</h4>
       <form onSubmit={e=> onSubmit(e)}>
         <div className="form-group">
           <input 
+            className="auth-form__input"
             type="text" 
             placeholder="Name" 
             name="name" 
@@ -48,6 +48,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
         </div>
         <div className="form-group">
           <input 
+            className="auth-form__input"
             type="email" 
             placeholder="Email Address" 
             name="email" 
@@ -58,6 +59,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
         </div>
         <div className="form-group">
           <input
+            className="auth-form__input"
             type="password"
             placeholder="Password"
             name="password"
@@ -67,6 +69,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
         </div>
         <div className="form-group">
           <input
+            className="auth-form__input"
             type="password"
             placeholder="Confirm Password"
             name="password2" 
@@ -76,10 +79,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // destructure s
         </div>
         <input type="submit" className="btn-basic" value="Register" />
       </form>
-      <p className="my-1">
-        Already have an account? <Link to="/login">Sign In</Link>
+      <p className="auth-form__comment">
+        Already have an account? <Link to="/login" className="auth-form__comment--link">Sign In</Link>
       </p>
-    </Fragment>
+    </div>
   )
 }
 

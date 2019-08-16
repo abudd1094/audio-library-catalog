@@ -1,0 +1,32 @@
+.navbar {
+    padding: 0;
+    background-color: $color-3;
+    
+    
+    &-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        
+    }
+}
+
+.nav {
+    
+    &-right {
+        display: flex;
+        lex-direction: row;
+    }
+
+    &-link {
+        margin: 0 15px;
+
+        color: $color-white;
+
+        &:hover {
+            color: $color-4;
+        }
+    }
+    
+}

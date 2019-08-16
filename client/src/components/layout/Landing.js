@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Landing extends Component {
   render() {
     return(
-      <div style={{ margin:'100px 0 0 0', textAlign:'center' }}>
+      <div className="landing">
         <h2>Audio Library Catalog</h2>
         <img src={ 
           require('./ALC-Logo-1.png')} 
@@ -11,7 +11,8 @@ class Landing extends Component {
           style={{ 
             display:'inline-block', 
             margin:'auto',
-            width:'50%'
+            width:'50%',
+            maxWidth:'200px'
           }} />
       </div>
     )

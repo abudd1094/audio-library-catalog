@@ -1,0 +1,9 @@
+.btn {
+    &-basic {
+        padding: 2px 20px;
+
+        border: 1px solid $color-4;
+        background-color: $color-1;
+        color: $color-4;
+    }
+}

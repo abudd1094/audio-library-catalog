@@ -1,0 +1,57 @@
+Arguments: 
+  /usr/local/Cellar/node/12.6.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.6.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/abudd/CODE/Personal/audio-library-catalog/node_modules/are-we-there-yet'
+
+npm manifest: 
+  {
+    "name": "audio-library-catalog",
+    "version": "1.0.0",
+    "description": "online catalog for storing and sorting audio information",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server",
+      "server": "nodemon server",
+      "client": "npm start --prefix client",
+      "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "author": "Alec Budd",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^0.18.1",
+      "bcryptjs": "^2.4.3",
+      "config": "^3.1.0",
+      "express": "^4.16.4",
+      "express-validator": "^5.3.1",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^5.5.8",
+      "react-redux": "^7.0.3",
+      "react-router-dom": "^5.0.0",
+      "redux": "^4.0.1",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-thunk": "^2.3.0"
+    },
+    "devDependencies": {
+      "concurrently": "^4.1.0",
+      "nodemon": "^1.19.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

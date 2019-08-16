@@ -1,0 +1,40 @@
+.auth-form {
+    text-align: center;
+
+    display: block;
+    margin: 25% auto;
+
+    width: 30%;
+    min-width: 280px;
+
+    border: 2px solid $color-3;
+    background-color: $color-2;
+    color: $color-4;
+
+    &__header {
+        margin: 15px 0;
+
+        color: $color-white,
+    }
+
+    &__input {
+        padding: 1px 5px;
+        text-align: left;
+
+        color: $color-4;
+        background-color: $color-1;
+    }
+
+    &__comment {
+        margin-top: 25px;
+        padding: 10px;
+
+        color: $color-1;
+
+        &--link {
+            color: $color-4;
+
+            padding-left: 5px;
+        }
+    }
+}

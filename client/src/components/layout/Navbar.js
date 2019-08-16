@@ -11,40 +11,32 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   }
   
   const authLinks = ( 
-    <ul className="flexcontainer flex-horiz" style={{width: "100%"}}>
+    <ul className="navbar-nav">
       <li className="nav-item">
         <Link to="/dashboard" className="nav-link">ALC</Link>
       </li>
       <li className="nav-item">
         <a onClick={onLogout} href="!#">
-          <i className="fas fa-sign-out-alt"></i>{' '} 
-          <span className='hide-sm'>Logout</span>
+          <span className='nav-link'>Logout</span>
         </a>
       </li>
     </ul>
   );
 
   const guestLinks = (
-    <ul className="flexcontainer flex-horiz" style={{width: "100%", padding: "none"}}>
+    <ul className="navbar-nav">
       <li className="nav-item">
         <Link to="/" className="nav-link">ALC</Link>
       </li>
-      <li className="nav-item">
+      <li className="nav-right">
         <Link to="/register" className="nav-link">Register</Link>
-      </li>
-      <li className="nav-item">
         <Link to="/login" className="nav-link">Login</Link>
       </li>
     </ul>
   );
   
   return (
-    <nav 
-      style={{ 
-        width:'100%', 
-        backgroundColor:'grey' 
-      }} 
-      className="flexcontainer flex-horiz">
+    <nav className="navbar">
       { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>) } 
     </nav>
   )
