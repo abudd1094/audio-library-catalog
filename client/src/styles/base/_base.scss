@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+    max-width: 1500px;
+    display: block;
+    margin: auto;
+
+    font-family: $font-primary;
+
+    background-color: $color-1;
+}
+
+h2 {
+    color: $color-5;
+}
